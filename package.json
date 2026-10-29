@@ -1,0 +1,13 @@
+{
+  "name": "multi-manager",
+  "version": "1.0.0",
+  "description": "MultiManager contract with onlyAllConfirmed modifier",
+  "scripts": {
+    "test": "hardhat test"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.29.1"
+  }
+}
