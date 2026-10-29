@@ -9,7 +9,7 @@ contract MyToken is ManagedAccess {
 
     string public name;
     string public symbol;
-    uint8 public decimals;
+    uint8 public decimals; // uint8 --> 8 bit unsigned int, uint16, ... , uint256
 
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
@@ -24,7 +24,7 @@ contract MyToken is ManagedAccess {
         name = _name;
         symbol = _symbol;
         decimals = _decimal;
-        _mint(_amount * 10 ** uint256(decimals), msg.sender);
+        _mint(_amount * 10 ** uint256(decimals), msg.sender); // 1 MT
     }
 
     function setManager(address _manager) external onlyOwner {
@@ -49,7 +49,6 @@ contract MyToken is ManagedAccess {
     function transferFrom(address from, address to, uint256 amount) external {
         address spender = msg.sender;
         require(allowance[from][spender] >= amount, "insufficient allowance");
-        require(balanceOf[from] >= amount, "insufficient balance");
         allowance[from][spender] -= amount;
         balanceOf[from] -= amount;
         balanceOf[to] += amount;
